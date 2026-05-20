@@ -2,7 +2,7 @@
 
 ## 🎯 Mục tiêu tuần này
 Hiểu Big-O, phân tích độ phức tạp, ôn tập C++ cơ bản.
---Mssv:2125110172
+--Mssv:2125110172 
 --Tên:Cái Đại Thành Long
 ---
 ### Bài 1: Phân tích Big-O ⭐
