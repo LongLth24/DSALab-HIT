@@ -29,7 +29,7 @@ void XuatMang(int a[MAX][MAX], int x, int y, const string ten){
     cout << "Mang " << ten << " vua nhap: \n";
     for (int i = 0; i < x; i++){
         for (int j = 0; j < y; j++){
-            cout << a[i][j] << " ";
+            cout << a[i][j] << "\t\t";
         }
         cout << endl;
     }
@@ -54,12 +54,35 @@ void Nhan_AxB(int a[MAX][MAX], int b[MAX][MAX], int c[MAX][MAX], int Row_a, int 
     }
 }
 
+void Tinh3X3(int a[MAX][MAX], int x, int y){
+    NhapMang(a, x, y, "D");
+    if (x < 3 || y < 3){
+        cout << "day khong phai ma tran 3x3" << endl;
+        return;
+    }else{
+        XuatMang(a, x, y, "D");
+        double tich = 1;
+        int xuoi1 = a[0][0] * a[1][1] * a[2][2];
+        int xuoi2 = a[0][1] * a[1][2] * a[2][0];
+        int xuoi3 = a[0][2] * a[1][0] * a[2][1];
+
+        int nguoc1 = a[0][2] * a[1][1] * a[2][0];
+        int nguoc2 = a[0][0] * a[1][2] * a[2][1];
+        int nguoc3 = a[0][1] * a[1][0] * a[2][2];
+
+        cout << "Dinh thuc cua ma tran 3x3: " << (xuoi1 + xuoi2 + xuoi3) - (nguoc1 + nguoc2 + nguoc3) << endl;
+    }
+}
+
 int main(){
-    int a[MAX][MAX], b[MAX][MAX], c[MAX][MAX], Row_a, Row_b, Col_a, Col_b;
+    int a[MAX][MAX], b[MAX][MAX], c[MAX][MAX], T3x3[MAX][MAX];
+    int Row_a, Row_b, Col_a, Col_b;
     NhapMang(a, Row_a, Col_a, "A");
     XuatMang(a, Row_a, Col_a, "A");
     NhapMang(b, Row_b, Col_b, "B");
     XuatMang(b, Row_b, Col_b, "B");
     Nhan_AxB(a, b, c, Row_a, Col_a, Row_b, Col_b);
+    Tinh3X3(a, Row_a, Col_a);
+
     return 0;
 }
